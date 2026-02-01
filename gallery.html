@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Gallery of Kabale Divine Preparatory School – see our classrooms, students, events, sports, campus life, and more in Kabale, Uganda." />
+  <title>Gallery - Kabale Divine Preparatory School</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+          },
+          colors: {
+            primary: '#1e40af',
+            accent:  '#d97706',
+            success: '#10b981',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom styles -->
+  <style>
+    .img-placeholder {
+      @apply w-full h-full bg-gradient-to-br from-slate-200 to-slate-300 flex flex-col items-center justify-center text-slate-500;
+    }
+    .img-placeholder i {
+      @apply text-6xl mb-4 opacity-60;
+    }
+    .img-placeholder span {
+      @apply text-lg font-medium text-center px-6;
+    }
+    .hamburger.open .line1 { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.open .line2 { opacity: 0; }
+    .hamburger.open .line3 { transform: rotate(-45deg) translate(7px, -6px); }
+    .nav-link { @apply font-medium text-slate-700 hover:text-accent transition-colors; }
+    .mobile-nav-item { @apply block py-4 px-6 rounded-lg hover:bg-slate-100 hover:text-accent transition text-lg font-medium; }
+    .social-link { @apply w-11 h-11 rounded-full bg-slate-800/60 flex items-center justify-center hover:bg-accent hover:text-white transition-all hover:-translate-y-1 text-xl; }
+    .quick-cta { @apply flex flex-col items-center gap-2 bg-slate-800/60 hover:bg-slate-700/80 py-4 rounded-lg text-sm font-medium transition; }
+    .fade-in { opacity: 0; transform: translateY(20px); transition: all 0.8s ease-out; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .gallery-item {
+      @apply relative overflow-hidden rounded-2xl shadow-lg group cursor-pointer;
+    }
+    .gallery-item img, .gallery-item .img-placeholder {
+      @apply w-full h-full object-cover transition-transform duration-500 group-hover:scale-110;
+    }
+    .gallery-overlay {
+      @apply absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white;
+    }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-slate-900 antialiased">
+
+  <!-- Skip link -->
+  <a href="#main-content" class="sr-only focus:not-sr-only fixed top-4 left-4 z-50 bg-accent text-white px-4 py-2 rounded focus:ring-4 focus:ring-accent/40">
+    Skip to main content
+  </a>
+
+  <!-- ================== NAVIGATION ================== -->
+  <header class="fixed inset-x-0 top-0 z-50 transition-all duration-300" id="header">
+    <nav class="bg-white/80 backdrop-blur-lg border-b border-slate-200/70 shadow-sm" aria-label="Primary navigation">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+
+          <!-- Logo -->
+          <a href="home.html" class="flex items-center gap-3" aria-label="Kabale Divine Preparatory School Home">
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-blue-800 flex items-center justify-center shadow-md">
+              <i class="fas fa-school text-white text-2xl"></i>
+            </div>
+            <div class="flex flex-col">
+              <span class="text-xl font-bold tracking-tight text-slate-800">Kabale Divine</span>
+              <span class="text-xs text-slate-500 font-medium">Preparatory School</span>
+            </div>
+          </a>
+
+          <!-- Desktop Menu -->
+          <div class="hidden lg:flex items-center gap-10">
+            <div class="flex items-center gap-8">
+              <a href="home.html" class="nav-link">Home</a>
+              <a href="about.html" class="nav-link">About Us</a>
+              <a href="admissions.html" class="nav-link">Admissions</a>
+              <a href="academics.html" class="nav-link">Academics</a>
+              <a href="gallery.html" class="nav-link text-accent font-semibold">Gallery</a>
+              <a href="news.html" class="nav-link">News & Events</a>
+              <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <div class="flex items-center gap-6">
+              <button aria-label="Search" class="text-slate-600 hover:text-accent transition">
+                <i class="fas fa-search text-lg"></i>
+              </button>
+              <a href="admissions.html" class="bg-accent hover:bg-amber-700 text-white px-7 py-3 rounded-full font-semibold shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5">
+                Enroll Now
+              </a>
+            </div>
+          </div>
+
+          <!-- Mobile Toggle -->
+          <button id="mobile-toggle" class="lg:hidden text-slate-700 focus:outline-none focus:ring-2 focus:ring-accent rounded-lg p-2" aria-label="Toggle menu" aria-expanded="false">
+            <svg id="hamburger" class="hamburger w-8 h-8 transition duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path class="line1" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16" />
+              <path class="line2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 12h16" />
+              <path class="line3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 18h16" />
+            </svg>
+          </button>
+
+        </div>
+      </div>
+
+      <!-- Mobile Panel -->
+      <div id="mobile-menu" class="hidden fixed inset-0 bg-white/98 backdrop-blur-md z-40 pt-20 overflow-y-auto lg:hidden">
+        <div class="container mx-auto px-6 py-10 flex flex-col gap-6">
+          <a href="home.html" class="mobile-nav-item">Home</a>
+          <a href="about.html" class="mobile-nav-item">About Us</a>
+          <a href="admissions.html" class="mobile-nav-item">Admissions</a>
+          <a href="academics.html" class="mobile-nav-item">Academics</a>
+          <a href="gallery.html" class="mobile-nav-item text-accent font-semibold">Gallery</a>
+          <a href="news.html" class="mobile-nav-item">News & Events</a>
+          <a href="contact.html" class="mobile-nav-item">Contact</a>
+          <a href="admissions.html" class="mt-8 block bg-accent text-white text-center py-4 rounded-xl font-semibold shadow-lg">
+            Enroll Now
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="h-20"></div>
+
+  <main id="main-content">
+
+    <!-- ================== PAGE HEADER ================== -->
+    <section class="relative py-20 lg:py-28 bg-gradient-to-br from-primary/90 to-primary/70 text-white overflow-hidden">
+      <div class="absolute inset-0 opacity-10">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl -translate-y-1/3 translate-x-1/3"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl translate-y-1/3 -translate-x-1/3"></div>
+      </div>
+
+      <div class="container mx-auto px-6 relative z-10 text-center">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 fade-in">School Gallery</h1>
+        <p class="text-xl md:text-2xl max-w-3xl mx-auto opacity-90 fade-in">
+          A glimpse into daily life, learning moments, events, and joy at Kabale Divine Preparatory School.
+        </p>
+      </div>
+    </section>
+
+    <!-- ================== GALLERY GRID ================== -->
+    <section class="py-16 lg:py-24 bg-slate-50">
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
+          
+          <!-- Gallery Item 1 -->
+          <div class="gallery-item fade-in">
+            <div class="aspect-[4/3]">
+              <div class="img-placeholder">
+                <i class="fas fa-school"></i>
+                <span>Main Administration Block</span>
+              </div>
+            </div>
+            <div class="gallery-overlay">
+              <h4 class="text-xl font-bold">Main Administration Block</h4>
+              <span class="text-sm opacity-90">Campus</span>
+            </div>
+          </div>
+
+          <!-- Gallery Item 2 -->
+          <div class="gallery-item fade-in">
+            <div class="aspect-[4/3]">
+              <div class="img-placeholder">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <span>Standard Primary Classroom</span>
+              </div>
+            </div>
+            <div class="gallery-overlay">
+              <h4 class="text-xl font-bold">Standard Primary Classroom</h4>
+              <span class="text-sm opacity-90">Learning Environment</span>
+            </div>
+          </div>
+
+          <!-- Gallery Item 3 -->
+          <div class="gallery-item fade-in">
+            <div class="aspect-[4/3]">
+              <div class="img-placeholder">
+                <i class="fas fa-futbol"></i>
+                <span>Football Match vs District Rivals</span>
+              </div>
+            </div>
+            <div class="gallery-overlay">
+              <h4 class="text-xl font-bold">Football Match</h4>
+              <span class="text-sm opacity-90">Sports Day</span>
+            </div>
+          </div>
+
+          <!-- Gallery Item 4 -->
+          <div class="gallery-item fade-in">
+            <div class="aspect-[4/3]">
+              <div class="img-placeholder">
+                <i class="fas fa-music"></i>
+                <span>Annual Music & Drama Festival</span>
+              </div>
+            </div>
+            <div class="gallery-overlay">
+              <h4 class="text-xl font-bold">Music & Drama Festival</h4>
+              <span class="text-sm opacity-90">Co-curricular</span>
+            </div>
+          </div>
+
+          <!-- Gallery Item 5 -->
+          <div class="gallery-item fade-in">
+            <div class="aspect-[4/3]">
+              <div class="img-placeholder">
+                <i class="fas fa-flask"></i>
+                <span>Science Laboratory Session</span>
+              </div>
+            </div>
+            <div class="gallery-overlay">
+              <h4 class="text-xl font-bold">Science Lab Session</h4>
+              <span class="text-sm opacity-90">Practical Learning</span>
+            </div>
+          </div>
+
+          <!-- Gallery Item 6 -->
+          <div class="gallery-item fade-in">
+            <div class="aspect-[4/3]">
+              <div class="img-placeholder">
+                <i class="fas fa-seedling"></i>
+                <span>School Garden Project</span>
+              </div>
+            </div>
+            <div class="gallery-overlay">
+              <h4 class="text-xl font-bold">School Garden Project</h4>
+              <span class="text-sm opacity-90">Environmental Education</span>
+            </div>
+          </div>
+
+          <!-- Gallery Item 7 (example extra) -->
+          <div class="gallery-item fade-in">
+            <div class="aspect-[4/3]">
+              <div class="img-placeholder">
+                <i class="fas fa-praying-hands"></i>
+                <span>Morning Devotion</span>
+              </div>
+            </div>
+            <div class="gallery-overlay">
+              <h4 class="text-xl font-bold">Morning Devotion</h4>
+              <span class="text-sm opacity-90">Spiritual Life</span>
+            </div>
+          </div>
+
+          <!-- Gallery Item 8 (example extra) -->
+          <div class="gallery-item fade-in">
+            <div class="aspect-[4/3]">
+              <div class="img-placeholder">
+                <i class="fas fa-child-reaching"></i>
+                <span>Playtime on the Playground</span>
+              </div>
+            </div>
+            <div class="gallery-overlay">
+              <h4 class="text-xl font-bold">Playground Fun</h4>
+              <span class="text-sm opacity-90">Early Childhood</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================== FOOTER ================== -->
+  <footer class="bg-gradient-to-b from-slate-900 to-slate-950 text-slate-300 pt-16 pb-12">
+    <div class="container mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12">
+
+        <!-- Brand -->
+        <div class="lg:col-span-4">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-14 h-14 bg-accent rounded-xl flex items-center justify-center shadow-lg">
+              <i class="fas fa-school text-white text-2xl"></i>
+            </div>
+            <div>
+              <h3 class="text-2xl font-bold text-white tracking-tight">Kabale Divine</h3>
+              <p class="text-sm text-slate-400">Preparatory School</p>
+            </div>
+          </div>
+          <p class="text-slate-400 leading-relaxed mb-8">
+            Christ-centered primary education in Kabale, Uganda — nurturing tomorrow's leaders with faith, knowledge, and character.
+          </p>
+          <div class="flex gap-5">
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="lg:col-span-2">
+          <h4 class="text-white font-semibold text-lg mb-6">Quick Links</h4>
+          <ul class="space-y-3">
+            <li><a href="about.html" class="hover:text-white transition">About Us</a></li>
+            <li><a href="admissions.html" class="hover:text-white transition">Admissions</a></li>
+            <li><a href="academics.html" class="hover:text-white transition">Academics</a></li>
+            <li><a href="gallery.html" class="hover:text-white transition">Gallery</a></li>
+            <li><a href="news.html" class="hover:text-white transition">News & Events</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div class="lg:col-span-3">
+          <h4 class="text-white font-semibold text-lg mb-6">Get in Touch</h4>
+          <ul class="space-y-5">
+            <li class="flex items-start gap-4">
+              <i class="fas fa-map-marker-alt text-accent mt-1 text-xl"></i>
+              <span>P.O. Box 123, Mbarara Road, Kabale, Uganda</span>
+            </li>
+            <li class="flex items-center gap-4">
+              <i class="fas fa-phone text-accent text-xl"></i>
+              <span>+256 700 000 000</span>
+            </li>
+            <li class="flex items-center gap-4">
+              <i class="fas fa-envelope text-accent text-xl"></i>
+              <span>info@kabaledivine.com</span>
+            </li>
+          </ul>
+          <div class="mt-8 grid grid-cols-3 gap-4">
+            <a href="tel:+256700000000" class="quick-cta"><i class="fas fa-phone"></i> Call</a>
+            <a href="mailto:info@kabaledivine.com" class="quick-cta"><i class="fas fa-envelope"></i> Email</a>
+            <a href="#" class="quick-cta"><i class="fas fa-directions"></i> Map</a>
+          </div>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="lg:col-span-3">
+          <h4 class="text-white font-semibold text-lg mb-6">Newsletter</h4>
+          <p class="text-slate-400 text-sm mb-5">Stay updated with school events, achievements & announcements.</p>
+          <form class="flex flex-col gap-3" onsubmit="alert('Thank you for subscribing! (demo)'); return false;">
+            <input type="email" placeholder="Your email address" required class="bg-slate-800/60 border border-slate-700 rounded-lg px-5 py-3 text-white placeholder-slate-400 focus:border-accent focus:ring-accent outline-none" />
+            <button type="submit" class="bg-accent hover:bg-amber-700 px-6 py-3 rounded-lg font-medium transition">Subscribe</button>
+          </form>
+          <p class="text-xs text-slate-500 mt-3">We respect your privacy — no spam ever.</p>
+        </div>
+
+      </div>
+
+      <div class="mt-16 pt-10 border-t border-slate-800 text-center text-sm text-slate-500">
+        <p>© <span id="current-year"></span> Kabale Divine Preparatory School. All rights reserved.</p>
+        <div class="mt-3 flex justify-center gap-6 text-xs">
+          <a href="#" class="hover:text-slate-300">Privacy Policy</a>
+          <a href="#" class="hover:text-slate-300">Terms of Use</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Back to Top -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-accent text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300 hover:bg-amber-700 focus:outline-none focus:ring-4 focus:ring-accent/40" aria-label="Back to top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const toggle = document.getElementById('mobile-toggle');
+    const menu = document.getElementById('mobile-menu');
+    const hamburger = document.getElementById('hamburger');
+
+    toggle.addEventListener('click', () => {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', !expanded);
+      menu.classList.toggle('hidden');
+      hamburger.classList.toggle('open');
+    });
+
+    // Current year
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // Back to top
+    const btt = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        btt.classList.remove('opacity-0', 'invisible');
+        btt.classList.add('opacity-100', 'visible');
+      } else {
+        btt.classList.add('opacity-0', 'invisible');
+        btt.classList.remove('opacity-100', 'visible');
+      }
+    });
+    btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // Nav scroll effect
+    window.addEventListener('scroll', () => {
+      document.getElementById('header').classList.toggle('bg-white/95', window.scrollY > 80);
+      document.getElementById('header').classList.toggle('shadow-md', window.scrollY > 80);
+    });
+
+    // Fade-in observer
+    const fadeElements = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    fadeElements.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

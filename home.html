@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Kabale Divine Preparatory School – Your Door to the Future. Faith-based primary education nurturing hearts and expanding minds in Rushambya – Kirigime, Southern Division, Kabale District, Uganda." />
+  <title>Kabale Divine Preparatory School | Your Door to the Future</title>
+
+  <!-- Preconnects -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome async -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'" />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'], serif: ['"Playfair Display"', 'Georgia', 'serif'] },
+          colors: { primary: '#1e40af', accent: '#d97706', success: '#10b981' }
+        }
+      }
+    }
+  </script>
+
+  <!-- Critical CSS -->
+  <style>
+    :root { --header-height: 5rem; }
+    body { font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+    .hero-bg { background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 50%, #d97706 100%); }
+    .stats-container {
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+      z-index: 30;
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+    .hamburger.open .line1 { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.open .line2 { opacity: 0; }
+    .hamburger.open .line3 { transform: rotate(-45deg) translate(7px, -6px); }
+    .nav-link { @apply font-medium text-slate-700 hover:text-accent transition-colors duration-200; }
+    .count-up { font-variant-numeric: tabular-nums; }
+    .motto-text { font-family: 'Playfair Display', Georgia, serif; }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-slate-900 antialiased">
+
+  <!-- Skip link -->
+  <a href="#main-content" class="sr-only focus:not-sr-only fixed top-4 left-4 z-[100] bg-accent text-white px-5 py-3 rounded-lg shadow-lg focus:ring-4 focus:ring-accent/40">
+    Skip to main content
+  </a>
+
+  <!-- ================== NAVIGATION ================== -->
+  <header class="fixed inset-x-0 top-0 z-50 transition-all duration-300" id="header">
+    <nav class="bg-white/85 backdrop-blur-lg border-b border-slate-200/60 shadow-sm">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <a href="home.html" class="flex items-center gap-3 z-10" aria-label="Home">
+            <div class="w-11 h-11 md:w-12 md:h-12 rounded-xl bg-gradient-to-br from-primary to-blue-800 flex items-center justify-center shadow-md flex-shrink-0">
+              <i class="fas fa-school text-white text-xl md:text-2xl"></i>
+            </div>
+            <div class="flex flex-col">
+              <span class="text-lg md:text-xl font-bold tracking-tight text-slate-800">Kabale Divine</span>
+              <span class="text-xs text-slate-500 font-medium hidden sm:block">Preparatory School</span>
+            </div>
+          </a>
+
+          <div class="hidden lg:flex items-center gap-10">
+            <div class="flex items-center gap-8">
+              <a href="home.html" class="nav-link">Home</a>
+              <a href="about.html" class="nav-link">About Us</a>
+              <a href="admissions.html" class="nav-link">Admissions</a>
+              <a href="academics.html" class="nav-link">Academics</a>
+              <a href="gallery.html" class="nav-link">Gallery</a>
+              <a href="news.html" class="nav-link">News & Events</a>
+              <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <a href="admissions.html" class="bg-accent hover:bg-amber-700 text-white px-6 py-3 rounded-full font-semibold shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 whitespace-nowrap">
+              Enroll Now
+            </a>
+          </div>
+
+          <button id="mobile-toggle" class="lg:hidden text-slate-700 focus:outline-none focus:ring-2 focus:ring-accent/50 rounded-lg p-2" aria-label="Toggle menu" aria-expanded="false">
+            <svg id="hamburger" class="hamburger w-8 h-8 transition duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+              <path class="line1" stroke-linecap="round" stroke-linejoin="round" d="M4 6h16" />
+              <path class="line2" stroke-linecap="round" stroke-linejoin="round" d="M4 12h16" />
+              <path class="line3" stroke-linecap="round" stroke-linejoin="round" d="M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div id="mobile-menu" class="hidden fixed inset-0 bg-white/98 backdrop-blur-md z-40 pt-20 overflow-y-auto lg:hidden">
+        <div class="container mx-auto px-6 py-12 flex flex-col gap-6 text-lg font-medium">
+          <a href="home.html" class="mobile-nav-item">Home</a>
+          <a href="about.html" class="mobile-nav-item">About Us</a>
+          <a href="admissions.html" class="mobile-nav-item">Admissions</a>
+          <a href="academics.html" class="mobile-nav-item">Academics</a>
+          <a href="gallery.html" class="mobile-nav-item">Gallery</a>
+          <a href="news.html" class="mobile-nav-item">News & Events</a>
+          <a href="contact.html" class="mobile-nav-item">Contact</a>
+          <a href="admissions.html" class="mt-8 block bg-accent text-white text-center py-4 rounded-xl font-semibold shadow-lg">
+            Enroll Now
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="h-20"></div>
+
+  <main id="main-content">
+
+    <!-- ================== HERO ================== -->
+    <section class="relative min-h-[80vh] md:min-h-[85vh] flex items-center hero-bg text-white overflow-hidden">
+      <div class="absolute inset-0 opacity-10 pointer-events-none">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(255,255,255,0.25),transparent_40%)] animate-pulse-slow"></div>
+      </div>
+
+      <div class="container mx-auto px-6 py-16 md:py-24 relative z-10 text-center">
+        <h4 class="text-amber-200 font-medium tracking-widest uppercase mb-5 md:mb-6 text-lg md:text-xl animate-fade-in">
+          Welcome to Kabale Divine Preparatory School
+        </h4>
+        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold leading-tight mb-3 md:mb-5 drop-shadow-lg animate-fade-in-up">
+          Nurturing Hearts,<br class="sm:hidden"> Expanding Minds
+        </h1>
+        <p class="motto-text text-2xl md:text-3xl italic text-amber-200 font-serif mb-6 md:mb-8 animate-fade-in-up delay-100">
+          Your Door to the Future
+        </p>
+        <p class="text-lg md:text-xl max-w-3xl mx-auto mb-10 md:mb-12 text-slate-100/95 animate-fade-in-up delay-150">
+          Christ-centered primary education in Rushambya – Kirigime, Southern Division, Kabale District, Uganda — building strong character, faith, and academic excellence.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-5 justify-center animate-fade-in-up delay-200">
+          <a href="admissions.html" class="bg-accent hover:bg-amber-700 text-white px-8 py-4 rounded-full font-bold shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-1.5 duration-300 z-10 relative">
+            Enroll Today
+          </a>
+          <a href="about.html" class="border-2 border-white/70 hover:bg-white/15 text-white px-8 py-4 rounded-full font-bold transition-all duration-300 z-10 relative">
+            Learn More
+          </a>
+        </div>
+      </div>
+
+      <!-- ================== FLOATING STATS ================== -->
+      <div class="absolute -bottom-6 sm:-bottom-10 md:-bottom-14 left-0 right-0 z-30 px-4 sm:px-6 pointer-events-none">
+        <div class="container mx-auto pointer-events-auto">
+          <div class="stats-container rounded-2xl md:rounded-3xl p-5 md:p-7 grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-8 text-center border border-slate-100/50">
+            <div class="transform hover:scale-105 transition duration-300">
+              <i class="fas fa-user-tie text-3xl md:text-4xl text-accent mb-2"></i>
+              <div class="text-2xl md:text-3xl font-bold text-slate-800 count-up" data-target="25">+</div>
+              <div class="text-slate-600 text-xs md:text-sm mt-1">Qualified Teachers</div>
+            </div>
+            <div class="transform hover:scale-105 transition duration-300">
+              <i class="fas fa-child text-3xl md:text-4xl text-accent mb-2"></i>
+              <div class="text-2xl md:text-3xl font-bold text-slate-800 count-up" data-target="450">+</div>
+              <div class="text-slate-600 text-xs md:text-sm mt-1">Happy Students</div>
+            </div>
+            <div class="transform hover:scale-105 transition duration-300">
+              <i class="fas fa-map-marked-alt text-3xl md:text-4xl text-accent mb-2"></i>
+              <div class="text-2xl md:text-3xl font-bold text-slate-800 count-up" data-target="10"></div>
+              <div class="text-slate-600 text-xs md:text-sm mt-1">Acres of Campus</div>
+            </div>
+            <div class="transform hover:scale-105 transition duration-300">
+              <i class="fas fa-award text-3xl md:text-4xl text-accent mb-2"></i>
+              <div class="text-2xl md:text-3xl font-bold text-slate-800 count-up" data-target="15">+</div>
+              <div class="text-slate-600 text-xs md:text-sm mt-1">Years of Excellence</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================== MISSION & VISION ================== -->
+    <section class="py-24 lg:py-32 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div class="rounded-2xl overflow-hidden shadow-2xl order-2 lg:order-1 fade-in">
+            <div class="img-placeholder aspect-[4/3]">
+              <i class="fas fa-users"></i>
+              <span>Students Learning Together</span>
+            </div>
+          </div>
+
+          <div class="order-1 lg:order-2 fade-in">
+            <h2 class="text-4xl md:text-5xl font-serif font-bold mb-10 text-slate-800">Building Strong Foundations</h2>
+            <div class="space-y-10">
+              <div class="flex gap-6">
+                <div class="shrink-0 w-16 h-16 rounded-xl bg-amber-100 flex items-center justify-center text-3xl text-accent">
+                  <i class="fas fa-eye"></i>
+                </div>
+                <div>
+                  <h3 class="text-2xl font-bold mb-3">Our Vision</h3>
+                  <p class="text-lg text-slate-600 leading-relaxed">
+                    To raise God-fearing, innovative leaders who excel globally while upholding integrity and service.
+                  </p>
+                </div>
+              </div>
+              <div class="flex gap-6">
+                <div class="shrink-0 w-16 h-16 rounded-xl bg-blue-100 flex items-center justify-center text-3xl text-primary">
+                  <i class="fas fa-bullseye"></i>
+                </div>
+                <div>
+                  <h3 class="text-2xl font-bold mb-3">Our Mission</h3>
+                  <p class="text-lg text-slate-600 leading-relaxed">
+                    Delivering quality, holistic primary education in a loving Christian environment that fosters academic success, character, and lifelong skills.
+                  </p>
+                </div>
+              </div>
+              <div class="flex gap-6">
+                <div class="shrink-0 w-16 h-16 rounded-xl bg-emerald-100 flex items-center justify-center text-3xl text-success">
+                  <i class="fas fa-heart"></i>
+                </div>
+                <div>
+                  <h3 class="text-2xl font-bold mb-3">Core Values</h3>
+                  <p class="text-lg text-slate-600 leading-relaxed">
+                    Faith • Integrity • Discipline • Excellence • Teamwork • Service
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================== WHY CHOOSE US ================== -->
+    <section class="py-24 lg:py-32 bg-slate-50">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16 fade-in">
+          <h4 class="text-accent font-semibold tracking-widest uppercase mb-4">Why Families Choose Us</h4>
+          <h2 class="text-4xl md:text-5xl font-serif font-bold text-slate-800">What Sets Kabale Divine Apart</h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 lg:gap-12">
+          <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition group fade-in">
+            <div class="w-16 h-16 rounded-xl bg-blue-100 flex items-center justify-center text-4xl text-primary mb-6 group-hover:scale-110 transition duration-300">
+              <i class="fas fa-book-open"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Holistic Curriculum</h3>
+            <p class="text-slate-600">UNEB-aligned program enriched with life skills, ICT, creative arts, and character education.</p>
+          </div>
+
+          <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition group fade-in">
+            <div class="w-16 h-16 rounded-xl bg-amber-100 flex items-center justify-center text-4xl text-accent mb-6 group-hover:scale-110 transition duration-300">
+              <i class="fas fa-church"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Faith & Spiritual Nurture</h3>
+            <p class="text-slate-600">Daily devotions, weekly chapel services, and Bible-based moral instruction.</p>
+          </div>
+
+          <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition group fade-in">
+            <div class="w-16 h-16 rounded-xl bg-emerald-100 flex items-center justify-center text-4xl text-success mb-6 group-hover:scale-110 transition duration-300">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Safe & Modern Environment</h3>
+            <p class="text-slate-600">Bright classrooms, secure playgrounds, library, and technology-enhanced learning spaces.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================== FOOTER ================== -->
+  <footer class="bg-gradient-to-b from-slate-900 to-slate-950 text-slate-300 pt-16 pb-12">
+    <div class="container mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12">
+
+        <!-- Brand -->
+        <div class="lg:col-span-4">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-14 h-14 bg-accent rounded-xl flex items-center justify-center shadow-lg">
+              <i class="fas fa-school text-white text-2xl"></i>
+            </div>
+            <div>
+              <h3 class="text-2xl font-bold text-white tracking-tight">Kabale Divine</h3>
+              <p class="text-sm text-slate-400">Preparatory School</p>
+            </div>
+          </div>
+          <p class="text-slate-400 leading-relaxed mb-4">
+            Christ-centered primary education in Rushambya – Kirigime, Southern Division, Kabale District, Uganda.
+          </p>
+          <p class="text-slate-300 italic text-lg font-serif mb-6">
+            Your Door to the Future
+          </p>
+          <div class="flex gap-5">
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="lg:col-span-2">
+          <h4 class="text-white font-semibold text-lg mb-6">Quick Links</h4>
+          <ul class="space-y-3">
+            <li><a href="about.html" class="hover:text-white transition">About Us</a></li>
+            <li><a href="admissions.html" class="hover:text-white transition">Admissions</a></li>
+            <li><a href="academics.html" class="hover:text-white transition">Academics</a></li>
+            <li><a href="gallery.html" class="hover:text-white transition">Gallery</a></li>
+            <li><a href="news.html" class="hover:text-white transition">News & Events</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div class="lg:col-span-3">
+          <h4 class="text-white font-semibold text-lg mb-6">Get in Touch</h4>
+          <ul class="space-y-5">
+            <li class="flex items-start gap-4">
+              <i class="fas fa-map-marker-alt text-accent mt-1 text-xl"></i>
+              <span>Rushambya – Kirigime,<br>Southern Division,<br>Kabale District, Uganda</span>
+            </li>
+            <li class="flex items-center gap-4">
+              <i class="fas fa-phone text-accent text-xl"></i>
+              <span>+256 700 000 000</span>
+            </li>
+            <li class="flex items-center gap-4">
+              <i class="fas fa-envelope text-accent text-xl"></i>
+              <span>info@kabaledivine.com</span>
+            </li>
+          </ul>
+          <div class="mt-8 grid grid-cols-3 gap-4">
+            <a href="tel:+256700000000" class="quick-cta"><i class="fas fa-phone"></i> Call</a>
+            <a href="mailto:info@kabaledivine.com" class="quick-cta"><i class="fas fa-envelope"></i> Email</a>
+            <a href="#" class="quick-cta"><i class="fas fa-directions"></i> Map</a>
+          </div>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="lg:col-span-3">
+          <h4 class="text-white font-semibold text-lg mb-6">Newsletter</h4>
+          <p class="text-slate-400 text-sm mb-5">Stay updated with school events, achievements & announcements.</p>
+          <form class="flex flex-col gap-3" onsubmit="alert('Thank you for subscribing! (demo)'); return false;">
+            <input type="email" placeholder="Your email address" required class="bg-slate-800/60 border border-slate-700 rounded-lg px-5 py-3 text-white placeholder-slate-400 focus:border-accent focus:ring-accent outline-none" />
+            <button type="submit" class="bg-accent hover:bg-amber-700 px-6 py-3 rounded-lg font-medium transition">Subscribe</button>
+          </form>
+          <p class="text-xs text-slate-500 mt-3">We respect your privacy — no spam ever.</p>
+        </div>
+
+      </div>
+
+      <div class="mt-16 pt-10 border-t border-slate-800 text-center text-sm text-slate-500">
+        <p>© <span id="current-year"></span> Kabale Divine Preparatory School. All rights reserved.</p>
+        <div class="mt-3 flex justify-center gap-6 text-xs">
+          <a href="#" class="hover:text-slate-300">Privacy Policy</a>
+          <a href="#" class="hover:text-slate-300">Terms of Use</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Back to Top -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-accent text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300 hover:bg-amber-700 focus:outline-none focus:ring-4 focus:ring-accent/40" aria-label="Back to top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Mobile menu toggle
+      const toggle = document.getElementById('mobile-toggle');
+      const menu = document.getElementById('mobile-menu');
+      const hamburger = document.getElementById('hamburger');
+
+      toggle?.addEventListener('click', () => {
+        const expanded = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', !expanded);
+        menu.classList.toggle('hidden');
+        hamburger.classList.toggle('open');
+      });
+
+      // Back to top
+      const btt = document.getElementById('back-to-top');
+      if (btt) {
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 400) {
+            btt.classList.remove('opacity-0', 'invisible');
+            btt.classList.add('opacity-100', 'visible');
+          } else {
+            btt.classList.add('opacity-0', 'invisible');
+            btt.classList.remove('opacity-100', 'visible');
+          }
+        });
+        btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+      }
+
+      // Nav scroll effect
+      window.addEventListener('scroll', () => {
+        document.getElementById('header')?.classList.toggle('bg-white/95', window.scrollY > 80);
+        document.getElementById('header')?.classList.toggle('shadow-md', window.scrollY > 80);
+      });
+
+      // ================== COUNT-UP ANIMATION ==================
+      const countUpElements = document.querySelectorAll('.count-up');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            countUpElements.forEach(el => {
+              const target = parseInt(el.getAttribute('data-target'), 10);
+              let current = 0;
+              const duration = 1800; // 1.8 seconds
+              const stepTime = 30;
+              const steps = duration / stepTime;
+              const increment = target / steps;
+
+              const updateCount = () => {
+                current += increment;
+                if (current >= target) {
+                  current = target;
+                }
+                el.textContent = Math.floor(current) + (el.textContent.includes('+') ? '+' : '');
+                if (current < target) {
+                  setTimeout(updateCount, stepTime);
+                }
+              };
+
+              updateCount();
+            });
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.4 });
+
+      const statsSection = document.querySelector('.stats-container')?.parentElement?.parentElement;
+      if (statsSection) observer.observe(statsSection);
+    });
+  </script>
+
+</body>
+</html>
